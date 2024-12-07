@@ -31,13 +31,24 @@
         break;
 
       }else if(respond < answer){
-        min = respond;
-        count--;
+        if(respond <= min){
+          continue;
+
+        }else{
+          min = respond;
+          count--;
+        }
+        
 
 
       }else if(respond > answer){
+        if(respond >= max){
+          continue;
+
+        }else{
         max = respond;
         count--;
+      }
 
       }
     }

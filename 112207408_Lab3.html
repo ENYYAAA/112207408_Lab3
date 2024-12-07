@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>112207408_Lab3_Number Guessing Game</title>
+</head>
+<body>
+    <h1 align="center">112207408_Lab3_Number Guessing Game</h1>
+    <div id= "result" align="center"></div>
+
+  <script>
+    var count = 7;
+    var answer = Math.floor(Math.random()*98 + 2);
+    var max = 100;
+    var min = 1;
+
+  
+    while(count >= 1){
+      var respond = window.prompt('請輸入' + min + '~' + max +'間的數字\n還剩下'+ count +'次機會');
+      respond = parseInt(respond);
+
+      if(respond >= 100 || respond <= 1 || isNaN(respond)){
+        alert('請輸入有效範圍內的數字（不能選擇範圍的上下限）');
+        continue;
+
+      }else if(answer == respond){
+        alert('恭喜你答對了');
+        result = document.getElementById("result");
+        result.innerHTML = "<img src='correct.jpg' alt='cannot find picture but CORRECT'>"
+        break;
+
+      }else if(respond < answer){
+        min = respond;
+        count--;
+
+
+      }else if(respond > answer){
+        max = respond;
+        count--;
+
+      }
+    }
+
+      if(count == 0){
+        alert('正確答案為：' + answer);
+        result = document.getElementById("result");
+        result.innerHTML = "<img src='wrong.jpg' alt='cannot find picture but Wrong'>"
+      }
+
+  </script>
+
+  
+  
+</body>
+</html>
